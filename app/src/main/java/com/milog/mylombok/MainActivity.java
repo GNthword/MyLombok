@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import lombok.experimental.ExtensionMethod;
+import lombok.var;
+
+@ExtensionMethod({Ext.class})
 public class MainActivity extends Activity {
 
     private TextView tvShow;
@@ -22,6 +26,14 @@ public class MainActivity extends Activity {
         MyUser user = new MyUser();
         user.setName("setName");
         tvShow.setText(user.getName());
+
+        var a = 10;
+
+
+        String str = null;
+        Ext.or(str, "x");
+        tvShow.setText(str.or("HELLO WORLD".toTitleCase()));
+
     }
 
 }
